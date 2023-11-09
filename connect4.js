@@ -1,5 +1,37 @@
 "use strict";
 
+/** Class of Game generates a new instance of Connect 4 based on
+ * user inputs of the board's dimensions. Takes optional height and
+ * width variables.
+ */
+
+class Game {
+
+  /** Initializes height, width, current player, and board.  */
+  constructor(height = 6, width = 7) {
+    this.height = height;
+    this.width = width;
+    this.currPlayer = 1;
+    this.board = [];
+  }
+
+  /** makeBoard: fill in global `board`:
+  *    board = array of rows, each row is array of cells  (board[y][x])
+  */
+  makeBoard() {
+    for (let y = 0; y < this.height; y++) {
+      const emptyRow = Array.from({length: this.width}).fill(null);
+      this.board.push(emptyRow);
+    }
+  }
+
+
+
+
+}
+
+
+
 /** Connect Four
  *
  * Player 1 and 2 alternate turns. On each turn, a piece is dropped down a
