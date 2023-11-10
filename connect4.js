@@ -8,6 +8,7 @@
 class Game {
 
   /** Initializes height, width, current player, and board.  */
+
   constructor(height = 6, width = 7) {
     this.height = height;
     this.width = width;
@@ -19,6 +20,7 @@ class Game {
   /** makeBoard: fill in global `board`:
   *    board = array of rows, each row is array of cells  (board[y][x])
   */
+
   makeBoard() {
     for (let y = 0; y < this.height; y++) {
       const emptyRow = Array.from({length: this.width}).fill(null);
@@ -26,7 +28,7 @@ class Game {
     }
   }
 
-  /** makeHtmlBoard: make HTML table and row of column tops. */
+  /** makeHtmlBoard: removes old HTMLboard and makes new HTML table and row of column tops. */
 
   makeHtmlBoard() {
     const oldBoard = document.getElementById("board");
@@ -36,7 +38,7 @@ class Game {
     const gameLocation = document.getElementById('game');
     gameLocation.append(htmlBoard);
 
-    // TODO: add comment for this code
+    // Creates the top row with the cells to click on for adding game pieces to board
     const top = document.createElement("tr");
     top.setAttribute("id", "column-top");
 
@@ -103,7 +105,6 @@ class Game {
       // Check four cells to see if they're all color of current player
       //  - cells: list of four (y, x) cells
       //  - returns true if all are legal coordinates & all match currPlayer
-
       return cells.every(
           ([y, x]) =>
               y >= 0 &&
@@ -140,7 +141,9 @@ class Game {
 
   handleClick(evt) {
     // get x from ID of clicked cell
+    console.log(evt, evt.target, evt.target.id)
     const x = Number(evt.target.id.slice("top-".length));
+
 
     // get next spot in column (if none, ignore click)
     const y = this.findSpotForCol(x);

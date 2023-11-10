@@ -87,7 +87,7 @@ describe('placeInTable', function () {
 describe('checkForWin', function () {
 
   it('returns undefined if no winner', function () {
-    expect(testGame.checkForWin()).toEqual(undefined);
+    expect(testGame.checkForWin()).toEqual(false);
   });
 
   it('returns true if there is a horizontal winner', function () {
@@ -122,7 +122,7 @@ describe('checkForWin', function () {
 describe('handleClick', function () {
 
   it('it switches players', function () {
-    const evt = { target: { id: 0 } };
+    const evt = { target: { id: "top-0" } };
 
     expect(testGame.currPlayer).toEqual(1);
 
