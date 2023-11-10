@@ -22,6 +22,7 @@ class Game {
   */
 
   makeBoard() {
+    debugger;
     for (let y = 0; y < this.height; y++) {
       const emptyRow = Array.from({length: this.width}).fill(null);
       this.board.push(emptyRow);
@@ -32,6 +33,7 @@ class Game {
 
   makeHtmlBoard() {
     const oldBoard = document.getElementById("board");
+    //oldBoard.innerHTML = ''; easy way to empty out the table
     oldBoard.remove();
     const htmlBoard = document.createElement('table');
     htmlBoard.setAttribute('id', 'board');
@@ -128,7 +130,10 @@ class Game {
         const boundWin = _win.bind(this);
 
         // find winner (only checking each win-possibility as needed)
-        if (boundWin(horiz) || boundWin(vert) || boundWin(diagDR) || boundWin(diagDL)) {
+        if (boundWin(horiz) ||
+            boundWin(vert) ||
+            boundWin(diagDR) ||
+            boundWin(diagDL)) {
           return true;
         }
       }
